@@ -14,6 +14,10 @@ import java.awt.event.MouseEvent;
  *
  * @author Emmanuel Elite
  * @version June 10, 2016
+ *
+ * @author Emmanuel Elite
+ * @version January 5, 2022
+ *
  */
 
 public class TicTacToe implements ActionListener
@@ -26,24 +30,23 @@ public class TicTacToe implements ActionListener
     private String player;   // current player (PLAYER_X or PLAYER_O)
     private String winner;   // winner: PLAYER_X, PLAYER_O, TIE, EMPTY = in progress
     private int numFreeSquares; // number of squares still free
-    private String board[][]; // 3x3 array representing the board
-    private boolean state;  // true if there is a winner
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
-    private JButton button7;
-    private JButton button8;
-    private JButton button9;
-    private JLabel gameStatus; // displays game progress
-    private JLabel stats; // displays game statistics
-    private JMenuItem quitItem;
-    private JMenuItem newGame;
-    private JMenuItem changePlayer;
-    private ImageIcon X;
-    private ImageIcon O;
+    private final String[][] board; // 3x3 array representing the board
+    private final JButton button1;
+    private final JButton button2;
+    private final JButton button3;
+    private final JButton button4;
+    private final JButton button5;
+    private final JButton button6;
+    private final JButton button7;
+    private final JButton button8;
+    private final JButton button9;
+    private final JLabel gameStatus; // displays game progress
+    private final JLabel stats; // displays game statistics
+    private final JMenuItem quitItem;
+    private final JMenuItem newGame;
+    private final JMenuItem changePlayer;
+    private final ImageIcon X;
+    private final ImageIcon O;
     private int xStats; // stats for player x
     private int oStats; // stats for player o
     private int tieStats; //stats for ties
@@ -55,7 +58,6 @@ public class TicTacToe implements ActionListener
     public TicTacToe()
     {
         board = new String[3][3];
-        state = false;
         xStats = 0;
         oStats = 0;
         tieStats = 0;
@@ -119,11 +121,11 @@ public class TicTacToe implements ActionListener
         contentPane.add(stats);
 
         // creating the menu items
-        JMenuBar menubar = new JMenuBar();
-        frame.setJMenuBar(menubar); // add menu bar to our frame
+        JMenuBar menuBar = new JMenuBar();
+        frame.setJMenuBar(menuBar); // add menu bar to our frame
 
         JMenu fileMenu = new JMenu("Game"); // create a menu
-        menubar.add(fileMenu); // and add to our menu bar
+        menuBar.add(fileMenu); // and add to our menu bar
 
         newGame = new JMenuItem("New"); // create a menu item called "New Game"
         fileMenu.add(newGame); // and add to our menu
@@ -155,12 +157,167 @@ public class TicTacToe implements ActionListener
         button8.addActionListener(this);
         button9.addActionListener(this);
 
+        // add mouse listeners for the buttons
+        button1.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button1.isEnabled()) {
+                    button1.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button1.isEnabled()) {
+                    button1.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button1.isEnabled()) {
+                    button1.setIcon(null);
+                }
+            }
+        });
+
+        button2.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button2.isEnabled()) {
+                    button2.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button2.isEnabled()) {
+                    button2.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button2.isEnabled()) {
+                    button2.setIcon(null);
+                }
+            }
+        });
+
+        button3.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button3.isEnabled()) {
+                    button3.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button3.isEnabled()) {
+                    button3.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button3.isEnabled()) {
+                    button3.setIcon(null);
+                }
+            }
+        });
+
+        button4.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button4.isEnabled()) {
+                    button4.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button4.isEnabled()) {
+                    button4.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button4.isEnabled()) {
+                    button4.setIcon(null);
+                }
+            }
+        });
+
+        button5.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button5.isEnabled()) {
+                    button5.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button5.isEnabled()) {
+                    button5.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button5.isEnabled()) {
+                    button5.setIcon(null);
+                }
+            }
+        });
+
+        button6.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button6.isEnabled()) {
+                    button6.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button6.isEnabled()) {
+                    button6.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button6.isEnabled()) {
+                    button6.setIcon(null);
+                }
+            }
+        });
+
+        button7.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button7.isEnabled()) {
+                    button7.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button7.isEnabled()) {
+                    button7.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button7.isEnabled()) {
+                    button7.setIcon(null);
+                }
+            }
+        });
+
+        button8.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button8.isEnabled()) {
+                    button8.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button8.isEnabled()) {
+                    button8.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button8.isEnabled()) {
+                    button8.setIcon(null);
+                }
+            }
+        });
+
+        button9.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt)
+            {
+                if (player.equals(PLAYER_X) && button9.isEnabled()) {
+                    button9.setIcon(X);
+                } else if (player.equals(PLAYER_O) && button9.isEnabled()) {
+                    button9.setIcon(O);
+                }
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+                if (button9.isEnabled()) {
+                    button9.setIcon(null);
+                }
+            }
+        });
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // exit when we hit the "X"
         frame.pack();
         frame.setResizable(true);
         frame.setVisible(true);
         frame.setSize(550, 550);
         clearBoard();
+
     }
 
     /**
@@ -170,7 +327,6 @@ public class TicTacToe implements ActionListener
     {
         clearBoard();
         player = PLAYER_X;
-        state = false;
 
         button1.setEnabled(true);
         button2.setEnabled(true);
@@ -199,6 +355,7 @@ public class TicTacToe implements ActionListener
         stats.setText("Number of X wins = " + xStats
                 + "    Number of O wins = " + oStats
                 + "    Number of ties =  " + tieStats);
+
     }
 
     /**
@@ -222,8 +379,8 @@ public class TicTacToe implements ActionListener
      * Returns true if filling the given square gives us a winner, and false
      * otherwise.
      *
-     * int row of square just set
-     * int col of square just set
+     * @param row row of square just set
+     * @param col column of square just set
      *
      * @return true if we have a winner, false otherwise
      */
@@ -276,12 +433,12 @@ public class TicTacToe implements ActionListener
 
             JButton button = (JButton)o;
 
-            ImageIcon img = new ImageIcon("x.png"); // initialization necessary for compilation
+            ImageIcon img = new ImageIcon(); // initialization necessary for compilation
 
             // using the correct image
-            if(player == PLAYER_X){
+            if(player.equals(PLAYER_X)){
                 img = X;
-            } else if (player == PLAYER_O) {
+            } else if (player.equals(PLAYER_O)) {
                 img = O;
             }
 
@@ -326,16 +483,12 @@ public class TicTacToe implements ActionListener
             board[row][col] = player;
             numFreeSquares--;
 
-            if (haveWinner(row,col))
-            {
-                state = true;
+            if (haveWinner(row,col)) {
                 winner = player; // must be the player who just went
 
-                if (winner == PLAYER_X)
-                {
+                if (winner.equals(PLAYER_X)) {
                     xStats++;
-                } else if (winner == PLAYER_O)
-                {
+                } else if (winner.equals(PLAYER_O)) {
                     oStats++;
                 }
 
@@ -358,8 +511,7 @@ public class TicTacToe implements ActionListener
                 gameStatus.setText("It's a tie");
 
             } else {
-                if (player == PLAYER_X)
-                {
+                if (player.equals(PLAYER_X)) {
                     player = PLAYER_O;
                 } else {
                     player = PLAYER_X;
@@ -375,11 +527,9 @@ public class TicTacToe implements ActionListener
                 initialize();
             } else if (item == quitItem) { // quit
                 System.exit(0);
-            } else if (item == changePlayer && numFreeSquares == 9) // change starting player
-            {
+            } else if (item == changePlayer && numFreeSquares == 9) { // change starting player
 
-                if (player == PLAYER_X)
-                {
+                if (player.equals(PLAYER_X)) {
                     player = PLAYER_O;
                 } else {
                     player = PLAYER_X;
