@@ -1,6 +1,6 @@
 # TicTacToe
 
-This program simulates the popular paper game called "Tic Tac Toe" (also known as "Noughts and Crosses" or "Xs and Os"). Only offline multiplayer is supported at the moment.
+This is a desktop program that simulates the popular paper game called "Tic Tac Toe" (also known as "Noughts and Crosses" or "Xs and Os"). Only offline multiplayer is supported at the moment.
 
 ## Gameplay Screenshots
 During gameplay, clicked buttons become disabled. Squares that have not been clicked display the icon of the current player when the mouse hovers over them.
