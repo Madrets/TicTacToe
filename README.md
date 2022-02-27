@@ -27,7 +27,7 @@ The menu bar provides the following shortcuts:
 </p>
 
 #
-While there are still clickable buttons on the board, the came is still in progress.
+While there are still clickable buttons on the board, the game is still in progress.
 
 <br>
 <p align="center">
